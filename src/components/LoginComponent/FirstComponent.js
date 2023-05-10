@@ -1,4 +1,4 @@
-import "./style.css"
+import "./login.css"
 import "./animationSquare.css"
 import "./media.css"
 import logo from './assets/logo.png';
@@ -195,7 +195,7 @@ const FirstComponent = () => {
             {/*Formulário de LOGIN*/}
             <form id="login_form" >
 
-              <h2>Login</h2>
+              <h2 className="textLogin">Login</h2>
 
               {/* RA LOGIN */}
               <div className="input-box">
@@ -237,7 +237,7 @@ const FirstComponent = () => {
             {/*Formulário de REGISTRO*/}
             <form id="register_form" onSubmit={handleSubmit}>
 
-              <h2>Registro</h2>
+              <h2 className="textRegistro" >Registro</h2>
 
               {/* SELECT BOX */}
               <div className="select-container">
@@ -325,7 +325,7 @@ const FirstComponent = () => {
             {/*Formulário de RECUPERAÇÃO DE SENHA*/}
             <form id="forgot_password_form">
 
-              <h2>Esqueceu sua Senha?</h2>
+              <h2 className="textEsqueceu">Esqueceu sua Senha?</h2>
 
               <p>Informe seu email cadastrado para recuperar a senha.</p>
 

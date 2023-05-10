@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import "./style.css";
+import "./adm.css";
 import logo from './assets/logo.png';
 import infatec from './assets/infatec.png';
 import { IoIosSchool } from "react-icons/io";
@@ -120,41 +120,52 @@ const ThirdComponent = () => {
         }
         {showCronogramasForm &&
           <form id="cronogramas-form">
-            <span className="icon-close" onClick={closeFormCronogramas}>
-              <IoMdClose />
-            </span>
-            <h2>Cronogramas</h2>
-            <div className="form-row">
+          <span className="icon-close" onClick={closeFormCronogramas}>
+            <IoMdClose />
+          </span>
+          <h2>Cronogramas</h2>
+          <div className="form-row">
+            <div className="form-group">
               <label htmlFor="curso1">Nome do curso:</label>
               <input type="text" id="curso1" name="curso1" />
+            </div>
+            <div className="form-group">
               <label htmlFor="andar">Andar:</label>
               <input type="text" id="andar" name="andar" />
+            </div>
+            <div className="form-group">
               <label htmlFor="materia">Materia:</label>
               <input type="text" id="materia" name="materia" />
-              <div className="periodo">
-                <label htmlFor="periodo1">Período:</label>
-                <select id="periodo1" name="periodo1">
-                  <option value="dia">Dia</option>
-                  <option value="noite">Noite</option>
-                </select>
-                <label htmlFor="horarioInicio">horário de início:</label>
-                <input type="time" id="horarioInicio" name="horarioInicio" />
-                <label htmlFor="horarioFinal">horário final:</label>
-                <input type="time" id="horarioFinal" name="horarioFinal" />
-              </div>
-
-              <div className="nomeprof">
-                <label htmlFor="foto1">Foto do professor:</label>
-                <input type="file" id="foto1" name="foto1" />
-                <label htmlFor="nomeProfessor">Nome do professor:</label>
-                <input type="text" id="nomeProfessor" name="nomeProfessor" />
-              </div>
-              <button id="btnCronograma">
-                <IoMdSend /> Enviar
-              </button>
-
             </div>
-          </form>
+            <div className="form-group">
+              <label htmlFor="periodo1">Período:</label>
+              <select id="periodo1" name="periodo1">
+                <option value="dia">Dia</option>
+                <option value="noite">Noite</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="horarioInicio">horário de início:</label>
+              <input type="time" id="horarioInicio" name="horarioInicio" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="horarioFinal">horário final:</label>
+              <input type="time" id="horarioFinal" name="horarioFinal" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="foto1">Foto do professor:</label>
+              <input type="file" id="foto1" name="foto1" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="nomeProfessor">Nome do professor:</label>
+              <input type="text" id="nomeProfessor" name="nomeProfessor" />
+            </div>
+          </div>
+          <button id="btnCronograma">
+            <IoMdSend /> Enviar
+          </button>
+        </form>
+        
         }
       </main>
     </>

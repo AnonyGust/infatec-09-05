@@ -104,6 +104,13 @@ header {
     transition: .4s;
 }
 
+.textEsqueceu,
+.textRegistro, 
+.textLogin,
+p{
+  text-align: center;
+}
+
   .form-box {
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     opacity: 0;
@@ -135,18 +142,19 @@ header {
     height: 550px;
   }
 
-
-
   .form-register {
-    overflow-y: auto;
+    overflow-y: scroll;
     width: 400px;
     height: 600px;
     margin-top: 40px;
+    overflow-x: hidden;
+    
   }
-
+  
   #register_form{
     height: 550px;
   }
+
   #register_form h2{
     margin-top: 20px;
   }
@@ -188,6 +196,7 @@ header {
   .form-login {
     width: 400px;
     height: 400px;
+    
   }
   .form-forgotPassword{
     width: 400px;
@@ -277,7 +286,7 @@ header {
  .btn-forgot-password
  {
     width: 90%;
-    margin: 15px 0 30px;
+    margin: 15px 20px 15px;
     height: 45px;
     background: #162938;
     border: none;
@@ -288,6 +297,7 @@ header {
     font-weight: 500;
     color: white;
   }
+
 
 
   #forgot_password_form h2{
