@@ -28,7 +28,7 @@ const FirstComponent = () => {
   const [cursoSelecionado, setCursoSelecionado] = useState('');
   const [selectedOption, setSelectedOption] = useState(null);
 
-  //limpa os campos quando muda de formulário
+  //limpa os campos de LOGIN quando muda pra outro formulário
   const toggleLogin = () => {
     setRa("");
     setPassword("");
@@ -36,7 +36,7 @@ const FirstComponent = () => {
     setRegisterOpen(false);
     setForgotPasswordOpen(false);
   };
-  //limpa os campos quando muda de formulário
+  //limpa os campos de REGISTRO quando muda pra outro formulário
   const toggleRegister = () => {
     setName("")
     setRa("");
@@ -47,7 +47,7 @@ const FirstComponent = () => {
     setRegisterOpen(!registerOpen);
     setForgotPasswordOpen(false);
   };
-  //limpa os campos quando muda de formulário
+  //limpa os campos de ESQUECEU SENHA quando muda pra outro formulário
   const toggleForgotPassword = () => {
     setEmail("");
     setLoginOpen(false);
@@ -55,19 +55,20 @@ const FirstComponent = () => {
     setForgotPasswordOpen(!forgotPasswordOpen);
   };
 
+  //estado inicial de LOGIN como true e executa somente uma vez
   React.useEffect(() => {
     setLoginOpen(true);
   }, []);
 
 
-  //constantes para eventos de apresentar erro pop-up na tela
+  //constantes para guardar e setar valores nas constantes
   const [name, setName] = useState("");
   const [ra, setRa] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCpassword] = useState("");
 
-
+  //atualizará o valor da constante com o valor inserido pelo usuário
   const handleNameChange = (event) => setName(event.target.value);
   const handleEmailChange = (event) => setEmail(event.target.value);
   const handlePasswordChange = (event) => setPassword(event.target.value);
@@ -85,7 +86,7 @@ const FirstComponent = () => {
   };
 
 
-  //permite que somente números sejam digitados no campo de RA
+  //Verifica se tem 13 números digitados e se não tiver retorna erro 
   const handleRaBlur = (event) => {
     const inputValue = event.target.value;
     const inputLength = inputValue.length;
@@ -143,10 +144,7 @@ const FirstComponent = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const password = event.target.register_password.value;
-    const confirmPassword = event.target.register_confirm_password.value;
-
-    if (password !== confirmPassword) {
+    if (password !== cPassword) {
       toast.error('As senhas não coincidem!');
       return;
     }
@@ -202,10 +200,13 @@ const FirstComponent = () => {
                 <span className="icon">
                   <IoIosSchool />
                 </span>
-                <input type="text" required id="login_ra" maxLength="13" pattern="[0-9]+"
-                  onBlur={handleRaBlur}
-                  value={ra}
-                  onChange={handleRaChange} />
+                <input type="text"
+                 required id="login_ra"
+                 maxLength="13"
+                 pattern="[0-9]+"
+                 onBlur={handleRaBlur}
+                 value={ra}
+                 onChange={handleRaChange} />
                 <label>Ra</label>
               </div>
 
@@ -256,7 +257,10 @@ const FirstComponent = () => {
                 <span className="icon">
                   <IoMdPerson />
                 </span>
-                <input type="text" required id="register_name" onChange={handleNameChange} value={name} />
+                <input type="text"
+                  required id="register_name"
+                  onChange={handleNameChange}
+                  value={name} />
                 <label>Nome Completo</label>
               </div>
 
@@ -282,8 +286,12 @@ const FirstComponent = () => {
                 <span className="icon">
                   <IoMdMail />
                 </span>
-                <input type="text" required id="register_email" pattern=".+@.+\..+"
-                  onChange={handleEmailChange} onBlur={handleEmailBlur} value={email} />
+                <input type="text"
+                  required id="register_email"
+                  pattern=".+@.+\..+"
+                  onChange={handleEmailChange}
+                  onBlur={handleEmailBlur}
+                  value={email} />
                 <label>Email</label>
               </div>
 
@@ -308,9 +316,13 @@ const FirstComponent = () => {
                 <span className="icon">
                   <IoIosLock />
                 </span>
-                <input type="password" required id="register_confirm_password" onChange={handlecPasswordChange} value={cPassword} />
+                <input type="password"
+                  required id="register_confirm_password"
+                  onChange={handlecPasswordChange}
+                  value={cPassword} />
                 <label>Confirme sua Senha</label>
               </div>
+
               <button className="btn-registrar" type="submit">Registrar</button>
 
               <p>Já possuí uma conta? <a className="back-to-login" href="#"
@@ -334,7 +346,12 @@ const FirstComponent = () => {
                 <span className="icon">
                   <ion-icon name="mail"></ion-icon>
                 </span>
-                <input type="text" required id="forgot_password_email" pattern=".+@.+\..+" value={email} onChange={handleEmailChange} onBlur={handleEmailBlur} />
+                <input type="text"
+                 required id="forgot_password_email"
+                 pattern=".+@.+\..+"
+                 value={email}
+                 onChange={handleEmailChange}
+                 onBlur={handleEmailBlur} />
                 <label>Email</label>
               </div>
 
